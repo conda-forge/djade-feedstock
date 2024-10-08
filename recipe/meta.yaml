@@ -1,5 +1,5 @@
 {% set name = "djade" %}
-{% set version = "1.2.0" %}
+{% set version = "1.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/djade-{{ version }}.tar.gz
-  sha256: f8b2d0d38d9bb483fc2d69598c53c663a20e7993961c67be279466936b5e785d
+  sha256: a72bc81d6c47ec2cd35400b8aed5473dfbd4ae72df9c2a029929dc56687afc43
 
 build:
-  skip: True  # [py<38]
+  skip: true  # [py<38]
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
