@@ -1,5 +1,5 @@
 {% set name = "djade" %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/djade-{{ version }}.tar.gz
-  sha256: e8e88032a1297c7687ea763b0ad1e2f2aa7b9bcdecc6ac25bc717bb611f87c42
+  sha256: fee13ad8142338df9a658fc3789113bd08a518e56261cfe301a964faf62fc0cc
 
 build:
   skip: true  # [py<38]
