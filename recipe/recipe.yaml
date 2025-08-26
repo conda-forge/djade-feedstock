@@ -1,26 +1,28 @@
-{% set name = "djade" %}
-{% set version = "1.5.0" %}
+schema_version: 1
+
+context:
+  name: djade
+  version: 1.5.0
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/djade-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/djade-${{ version }}.tar.gz
   sha256: fee13ad8142338df9a658fc3789113bd08a518e56261cfe301a964faf62fc0cc
 
 build:
-  skip: true  # [py<38]
+  number: 0
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
-    - {{ stdlib('c') }}
-    - {{ compiler('c') }}
-    - {{ compiler('rust') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('rust') }}
     - cargo-bundle-licenses
   host:
     - python
@@ -29,17 +31,17 @@ requirements:
   run:
     - python
 
-test:
-  commands:
-    - djade --help
+tests:
+  - script:
+      - djade --help
 
 about:
-  home: https://github.com/adamchainz/djade
   summary: A Django template formatter.
   license: MIT
   license_file:
     - LICENSE
     - THIRDPARTY.yml
+  homepage: https://github.com/adamchainz/djade
 
 extra:
   recipe-maintainers:
