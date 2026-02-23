@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: djade
-  version: "1.7.0"
+  version: "1.8.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/djade-${{ version }}.tar.gz
-  sha256: b49e7ad42050ecac10ae990a6adbecec08c62b0a32a33de748d63d948bced815
+  sha256: a0f449a4d6d92da475a122ca2008598882e27c70c1b233f69d90fb0a37458c23
 
 build:
   number: 0
@@ -26,7 +26,7 @@ requirements:
     - cargo-bundle-licenses
   host:
     - python
-    - maturin >=1,<2
+    - maturin >=1.12,<2
     - pip
   run:
     - python
