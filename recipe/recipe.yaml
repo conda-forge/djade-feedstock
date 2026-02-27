@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: djade
-  version: "1.8.0"
+  version: "1.9.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/djade-${{ version }}.tar.gz
-  sha256: a0f449a4d6d92da475a122ca2008598882e27c70c1b233f69d90fb0a37458c23
+  sha256: e07dcec03982af3f12e46e42661c83ba6835edbde3597e0385ecfe7385527721
 
 build:
   number: 0
