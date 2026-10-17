@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: djade
-  version: "1.9.0"
+  version: "1.10.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/djade-${{ version }}.tar.gz
-  sha256: e07dcec03982af3f12e46e42661c83ba6835edbde3597e0385ecfe7385527721
+  sha256: 9d8af77a03000914b516d6be0967b5043094db5a91cec22649f689ee5bf2e5de
 
 build:
-  number: 1
+  number: 0
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
